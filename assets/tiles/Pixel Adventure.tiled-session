@@ -8,6 +8,17 @@
         "."
     ],
     "fileStates": {
+        "C:/Users/Dheeraj/OneDrive/Desktop/Tiny Quest Demo/Project/Levels/Tiled format files/level1.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 301,
+                "y": 538.6666666666666
+            }
+        },
+        "C:/Users/Dheeraj/OneDrive/Desktop/Tiny Quest Demo/Project/Levels/Tiled format files/level1.tmx#tileset": {
+            "scaleInDock": 1
+        },
         "Level-01.tmx": {
             "expandedObjectLayers": [
                 2
@@ -15,7 +26,7 @@
             "scale": 0.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 299,
+                "x": 368,
                 "y": 185
             }
         },
@@ -23,11 +34,11 @@
             "expandedObjectLayers": [
                 2
             ],
-            "scale": 0.75,
+            "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 85.99999999999997,
-                "y": 276.66666666666663
+                "x": 394.625,
+                "y": 277.25
             }
         },
         "Pixel Adventure.tsx": {
@@ -50,7 +61,8 @@
     "recentFiles": [
         "Pixel Adventure.tsx",
         "Level-01.tmx",
-        "Level-02.tmx"
+        "Level-02.tmx",
+        "C:/Users/Dheeraj/OneDrive/Desktop/Tiny Quest Demo/Project/Levels/Tiled format files/level1.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
