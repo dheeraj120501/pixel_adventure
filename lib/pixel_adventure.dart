@@ -5,6 +5,7 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/painting.dart';
+import 'package:pixel_adventure/components/level_data.dart';
 import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/level.dart';
 
@@ -13,30 +14,22 @@ class PixelAdventure extends FlameGame
   @override
   Color backgroundColor() => const Color(0xFF211F30);
 
-  late final CameraComponent cam;
-  Player player = Player(character: "Mask Dude");
+  late CameraComponent cam;
+  late Player player;
   late JoystickComponent joystick;
   bool showJoystick = false;
+  int currentLevel = 0;
+
+  List<LevelData> levelData = [
+    LevelData(levelName: "Level-02", playerName: "Pink Man"),
+    LevelData(levelName: "Level-02", playerName: "Mask Dude")
+  ];
 
   @override
   FutureOr<void> onLoad() async {
     await images.loadAllImages();
 
-    final world = Level(
-      levelName: "Level-02",
-      player: player,
-    );
-
-    cam = CameraComponent.withFixedResolution(
-      width: 640,
-      height: 360,
-      world: world,
-    );
-    cam.viewfinder.anchor = Anchor.topLeft;
-    addAll([
-      cam,
-      world,
-    ]);
+    _loadLevel();
 
     if (showJoystick) {
       addJoystick();
@@ -91,5 +84,32 @@ class PixelAdventure extends FlameGame
       default:
         player.horizontalMovement = 0;
     }
+  }
+
+  void loadNextLevel() {
+    currentLevel = (currentLevel + 1) % levelData.length;
+    _loadLevel();
+  }
+
+  void _loadLevel() {
+    const levelChangeDuration = Duration(seconds: 1);
+    player = Player(character: levelData[currentLevel].playerName);
+    Future.delayed(levelChangeDuration, () {
+      final world = Level(
+        levelName: levelData[currentLevel].levelName,
+        player: player,
+      );
+
+      cam = CameraComponent.withFixedResolution(
+        width: 640,
+        height: 360,
+        world: world,
+      );
+      cam.viewfinder.anchor = Anchor.topLeft;
+      addAll([
+        cam,
+        world,
+      ]);
+    });
   }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="36">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="39">
  <tileset firstgid="1" source="Pixel Adventure.tsx"/>
  <layer id="1" name="Background" width="40" height="23">
   <properties>
@@ -34,11 +34,26 @@
  <objectgroup id="2" name="Spawnpoints">
   <object id="1" name="Player" type="Player" x="96" y="208" width="32" height="32"/>
   <object id="27" name="Bananas" type="Fruit" x="368" y="144" width="32" height="32"/>
-  <object id="30" name="Cherries" type="Fruit" x="224" y="112" width="32" height="32"/>
-  <object id="32" name="Cherries" type="Fruit" x="224" y="80" width="32" height="32"/>
+  <object id="30" name="Cherries" type="Fruit" x="160" y="176" width="32" height="32"/>
+  <object id="32" name="Cherries" type="Fruit" x="160" y="144" width="32" height="32"/>
   <object id="33" name="Cherries" type="Fruit" x="240" y="256" width="32" height="32"/>
   <object id="34" name="Cherries" type="Fruit" x="288" y="256" width="32" height="32"/>
   <object id="35" name="Cherries" type="Fruit" x="256" y="208" width="32" height="32"/>
+  <object id="36" type="Saw" x="208" y="272" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offNeg" type="float" value="3"/>
+    <property name="offPos" type="float" value="8"/>
+   </properties>
+  </object>
+  <object id="37" type="Saw" x="304" y="112" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="true"/>
+    <property name="offNeg" type="float" value="2"/>
+    <property name="offPos" type="float" value="3"/>
+   </properties>
+  </object>
+  <object id="38" type="Checkpoint" x="96" y="80" width="64" height="64"/>
  </objectgroup>
  <objectgroup id="3" name="Collisions">
   <object id="8" x="64" y="48" width="16" height="256"/>

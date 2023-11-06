@@ -3,9 +3,11 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:pixel_adventure/components/background_tile.dart';
+import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
 import 'package:pixel_adventure/components/fruit.dart';
 import 'package:pixel_adventure/components/player.dart';
+import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
 
 class Level extends World with HasGameRef<PixelAdventure> {
@@ -69,6 +71,24 @@ class Level extends World with HasGameRef<PixelAdventure> {
               fruit: spawnPoint.name,
             );
             add(fruit);
+            break;
+          case 'Saw':
+            final saw = Saw(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              isVertical: spawnPoint.properties.getValue('isVertical'),
+              offNeg: spawnPoint.properties.getValue('offNeg'),
+              offPos: spawnPoint.properties.getValue('offPos'),
+            );
+            add(saw);
+            break;
+          case 'Checkpoint':
+            final cp = Checkpoint(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+            );
+            add(cp);
+            break;
           default:
         }
       }
